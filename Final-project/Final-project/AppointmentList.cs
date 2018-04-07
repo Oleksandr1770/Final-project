@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace Final_project
 {
     class AppointmentList
     {
-        private List<Appointment> appointments = null;
+        private ObservableCollection<Appointment> appointments = null;
 
-        public AppointmentList() => appointments = new List<Appointment>();
+        public AppointmentList() => appointments = new ObservableCollection<Appointment>();
 
         public Appointment this[int i]
         {
@@ -18,6 +15,13 @@ namespace Final_project
             set => appointments[i] = value;
         }
         public void Add(Appointment a) => appointments.Add(a);
+        public void AddRange(ObservableCollection<Appointment> a)
+        {
+            for (int i = 0; i < a.Count; i++)
+            {
+                appointments.Add(a[i]);
+            }
+        }
         public void Remove(Appointment a) => appointments.Remove(a);
         public int Count => appointments.Count;
         public bool Contains(Appointment a) => appointments.Contains(a);
@@ -25,7 +29,13 @@ namespace Final_project
 
         public void Sort()
         {
-            appointments.Sort();
+            List<Appointment> list = new List<Appointment>(appointments);
+            list.Sort();
+            appointments.Clear();
+            for (int i = 0; i < list.Count; i++)
+            {
+                appointments.Add(list[i]);
+            }
         }
     }
 }
