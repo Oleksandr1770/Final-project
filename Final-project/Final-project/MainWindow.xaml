@@ -47,17 +47,17 @@
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
                     <Label Grid.Column="0" Grid.Row="0" Content="First name" Style="{StaticResource MyFont}"/>
-                    <TextBox Grid.Column="1" Grid.Row="0" Style="{StaticResource MyFont}"/>
+                    <TextBox Grid.Column="1" Grid.Row="0" Style="{StaticResource MyFont}" Text="{Binding FirstName}"/>
                     <Label  Grid.Column="0" Grid.Row="1" Content="Last Name" Style="{StaticResource MyFont}"/>
-                    <TextBox Grid.Column="1" Grid.Row="1" Style="{StaticResource MyFont}"/>
+                    <TextBox Grid.Column="1" Grid.Row="1" Style="{StaticResource MyFont}" Text="{Binding LastName}"/>
                     <Label  Grid.Column="0" Grid.Row="2" Content="Email" Style="{StaticResource MyFont}"/>
-                    <TextBox Grid.Column="1" Grid.Row="2" Style="{StaticResource MyFont}"/>
+                    <TextBox Grid.Column="1" Grid.Row="2" Style="{StaticResource MyFont}" Text="{Binding Email}"/>
                     <Label  Grid.Column="0" Grid.Row="3" Content="Phone Number" Style="{StaticResource MyFont}"/>
-                    <TextBox Grid.Column="1" Grid.Row="3" Style="{StaticResource MyFont}"/>
+                    <TextBox Grid.Column="1" Grid.Row="3" Style="{StaticResource MyFont}" Text="{Binding PhoneNumber}"/>
                     <Label  Grid.Column="0" Grid.Row="4" Content="Age" Style="{StaticResource MyFont}"/>
-                    <TextBox Grid.Column="1" Grid.Row="4" Style="{StaticResource MyFont}"/>
+                    <TextBox Grid.Column="1" Grid.Row="4" Style="{StaticResource MyFont}" Text="{Binding Age}"/>
                     <Label  Grid.Column="0" Grid.Row="5" Content="Citizenship" Style="{StaticResource MyFont}"/>
-                    <TextBox Grid.Column="1" Grid.Row="5" Style="{StaticResource MyFont}"/>
+                    <TextBox Grid.Column="1" Grid.Row="5" Style="{StaticResource MyFont}" Text="{Binding Citizenship}"/>
                     <Label  Grid.Column="0" Grid.Row="6" Content="Current status" Style="{StaticResource MyFont}"/>
                     <ComboBox Grid.Column="1" Grid.Row="6" Style="{StaticResource MyFont}"/>
                 </Grid>
@@ -78,9 +78,9 @@
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
                     <Label Grid.Column="0" Grid.Row="0" Content="Sex" Style="{StaticResource MyFont}"/>
-                    <ComboBox Grid.Column="1" Grid.Row="0" Style="{StaticResource MyFont}"/>
+                    <ComboBox Grid.Column="1" Grid.Row="0" Style="{StaticResource MyFont}" Text="{Binding Sex}"/>
                     <Label Grid.Column="0" Grid.Row="1" Content="Marital Status" Style="{StaticResource MyFont}"/>
-                    <ComboBox Grid.Column="1" Grid.Row="1" Style="{StaticResource MyFont}"/>
+                    <ComboBox Grid.Column="1" Grid.Row="1" Style="{StaticResource MyFont}" Text="{Binding MaritalStatus}"/>
                     <Label Grid.Column="0" Grid.Row="2" Content="Type of service" Style="{StaticResource MyFont}"/>
                     <ComboBox Grid.Column="1" Grid.Row="2" Style="{StaticResource MyFont}"/>
                     <Label Grid.Column="0" Grid.Row="3" Content="Appointment Time" Style="{StaticResource MyFont}"/>

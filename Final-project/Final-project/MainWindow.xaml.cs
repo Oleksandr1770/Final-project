@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,9 +21,13 @@ namespace Final_project
     /// </summary>
     public partial class MainWindow : Window
     {
+        private ObservableCollection<Client> clients = null;
+
         public MainWindow()
         {
             InitializeComponent();
         }
+
+        internal ObservableCollection<Client> Clients { get => clients; set => clients = value; }
     }
 }
