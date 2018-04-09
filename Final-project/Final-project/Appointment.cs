@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Final_project
 {
-    class Appointment : IComparable
+    public class Appointment : IComparable
     {
         private string time;
-        private DateTime dateTime;
+        private DateTime date;
         private Client client;
         private string service;
 
@@ -17,17 +17,22 @@ namespace Final_project
 
         public Appointment(string time, DateTime dateTime, Client client, string service)
         {
-            this.time = time;
-            this.dateTime = dateTime;
-            this.client = client;
-            this.service = service;
+            this.Time = time;
+            this.Date = dateTime;
+            this.Client = client;
+            this.Service = service;
         }
+
+        public string Time { get => time; set => time = value; }
+        public DateTime Date { get => date; set => date = value; }
+        public string Service { get => service; set => service = value; }
+        public Client Client { get => client; set => client = value; }
 
         //Compare the dates
         public int CompareTo(object obj)
         {
             Appointment a = (Appointment)obj;
-            return dateTime.CompareTo(a.dateTime);
+            return Date.CompareTo(a.Date);
         }
     }
 }

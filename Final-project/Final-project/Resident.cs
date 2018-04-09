@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Final_project
 {
-    class Resident : Client
+    public class Resident : Client
     {
         public override string[] Services()
         {

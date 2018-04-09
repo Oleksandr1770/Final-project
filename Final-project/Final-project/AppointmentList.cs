@@ -3,7 +3,7 @@ using System.Collections.ObjectModel;
 
 namespace Final_project
 {
-    class AppointmentList
+    public class AppointmentList
     {
         private ObservableCollection<Appointment> appointments = null;
 
@@ -24,6 +24,9 @@ namespace Final_project
         }
         public void Remove(Appointment a) => appointments.Remove(a);
         public int Count => appointments.Count;
+
+        public ObservableCollection<Appointment> Appointments { get => appointments; set => appointments = value; }
+
         public bool Contains(Appointment a) => appointments.Contains(a);
         public void Clear() => appointments.Clear();
 

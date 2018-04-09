@@ -54,6 +54,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DisplayObject.cs" />
     <Compile Include="FileManager.cs" />
     <Compile Include="Resident.cs" />
     <Compile Include="XmlFileNotFoundException.cs" />

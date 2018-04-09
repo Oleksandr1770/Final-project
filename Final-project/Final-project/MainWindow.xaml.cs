@@ -21,13 +21,23 @@ namespace Final_project
     /// </summary>
     public partial class MainWindow : Window
     {
-        private ObservableCollection<Client> clients = null;
+        private DisplayObject displayObject = new DisplayObject();
+        private AppointmentList appointmentList = new AppointmentList();
+        private FileManager fileManager = FileManager.Instance();
+        private Dictionary<string, List<string>> services = new Dictionary<string, List<string>>();
+        private Queue<string> timeOptions = new Queue<string>();
+
 
         public MainWindow()
         {
             InitializeComponent();
+            AppointmentList = fileManager.ReadAppointments();
+            services = fileManager.ReadServices();
+            timeOptions = fileManager.ReadTime();
+            DataContext = this;
         }
 
-        internal ObservableCollection<Client> Clients { get => clients; set => clients = value; }
+        public AppointmentList AppointmentList { get => appointmentList; set => appointmentList = value; }
+        public Dictionary<string, List<string>> Services { get => services; set => services = value; }
     }
 }

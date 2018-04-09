@@ -47,19 +47,19 @@
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
                     <Label Grid.Column="0" Grid.Row="0" Content="First name" Style="{StaticResource MyFont}"/>
-                    <TextBox Grid.Column="1" Grid.Row="0" Style="{StaticResource MyFont}" Text="{Binding FirstName}"/>
+                    <TextBox Grid.Column="1" Grid.Row="0" Style="{StaticResource MyFont}" Text="{Binding DisplayObject.FirstName}"/>
                     <Label  Grid.Column="0" Grid.Row="1" Content="Last Name" Style="{StaticResource MyFont}"/>
-                    <TextBox Grid.Column="1" Grid.Row="1" Style="{StaticResource MyFont}" Text="{Binding LastName}"/>
+                    <TextBox Grid.Column="1" Grid.Row="1" Style="{StaticResource MyFont}" Text="{Binding DisplayObject.LastName}"/>
                     <Label  Grid.Column="0" Grid.Row="2" Content="Email" Style="{StaticResource MyFont}"/>
                     <TextBox Grid.Column="1" Grid.Row="2" Style="{StaticResource MyFont}" Text="{Binding Email}"/>
                     <Label  Grid.Column="0" Grid.Row="3" Content="Phone Number" Style="{StaticResource MyFont}"/>
-                    <TextBox Grid.Column="1" Grid.Row="3" Style="{StaticResource MyFont}" Text="{Binding PhoneNumber}"/>
+                    <TextBox Grid.Column="1" Grid.Row="3" Style="{StaticResource MyFont}" Text="{Binding DisplayObject.PhoneNumber}"/>
                     <Label  Grid.Column="0" Grid.Row="4" Content="Age" Style="{StaticResource MyFont}"/>
-                    <TextBox Grid.Column="1" Grid.Row="4" Style="{StaticResource MyFont}" Text="{Binding Age}"/>
+                    <TextBox Grid.Column="1" Grid.Row="4" Style="{StaticResource MyFont}" Text="{Binding DisplayObject.Age}"/>
                     <Label  Grid.Column="0" Grid.Row="5" Content="Citizenship" Style="{StaticResource MyFont}"/>
-                    <TextBox Grid.Column="1" Grid.Row="5" Style="{StaticResource MyFont}" Text="{Binding Citizenship}"/>
+                    <TextBox Grid.Column="1" Grid.Row="5" Style="{StaticResource MyFont}" Text="{Binding DisplayObject.Citizenship}"/>
                     <Label  Grid.Column="0" Grid.Row="6" Content="Current status" Style="{StaticResource MyFont}"/>
-                    <ComboBox Grid.Column="1" Grid.Row="6" Style="{StaticResource MyFont}"/>
+                    <ComboBox Grid.Column="1" Grid.Row="6" Style="{StaticResource MyFont}" SelectedValue="{Binding DisplayObject.CurrentStatus}"/>
                 </Grid>
             
                 <Grid Grid.Column="1" Margin="0, 0, 0, 0">
@@ -78,15 +78,15 @@
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
                     <Label Grid.Column="0" Grid.Row="0" Content="Sex" Style="{StaticResource MyFont}"/>
-                    <ComboBox Grid.Column="1" Grid.Row="0" Style="{StaticResource MyFont}" Text="{Binding Sex}"/>
+                    <ComboBox Grid.Column="1" Grid.Row="0" Style="{StaticResource MyFont}" SelectedValue="{Binding DisplayObject.Sex}"/>
                     <Label Grid.Column="0" Grid.Row="1" Content="Marital Status" Style="{StaticResource MyFont}"/>
-                    <ComboBox Grid.Column="1" Grid.Row="1" Style="{StaticResource MyFont}" Text="{Binding MaritalStatus}"/>
+                    <ComboBox Grid.Column="1" Grid.Row="1" Style="{StaticResource MyFont}" SelectedValue="{Binding DisplayObject.MaritalStatus}"/>
                     <Label Grid.Column="0" Grid.Row="2" Content="Type of service" Style="{StaticResource MyFont}"/>
-                    <ComboBox Grid.Column="1" Grid.Row="2" Style="{StaticResource MyFont}"/>
-                    <Label Grid.Column="0" Grid.Row="3" Content="Appointment Time" Style="{StaticResource MyFont}"/>
-                    <ComboBox Grid.Column="1" Grid.Row="3" Style="{StaticResource MyFont}"/>
-                    <Label Grid.Column="0" Grid.Row="4" Content="Appointment Date:" Style="{StaticResource MyFont}"/>
-                    <DatePicker x:Name="date" Grid.Column="1" Grid.Row="4" Style="{StaticResource MyFont}"/>
+                    <ComboBox Grid.Column="1" Grid.Row="2" Style="{StaticResource MyFont}" SelectedValue="{Binding DisplayObject.TypeOfService}"/>
+                    <Label Grid.Column="0" Grid.Row="3" Content="Appointment Date:" Style="{StaticResource MyFont}"/>
+                    <DatePicker x:Name="date" Grid.Column="1" Grid.Row="3" Style="{StaticResource MyFont}" SelectedDate="{Binding DisplayObject.AppointmentDate}"/>
+                    <Label Grid.Column="0" Grid.Row="4" Content="Appointment Time" Style="{StaticResource MyFont}"/>
+                    <ComboBox Grid.Column="1" Grid.Row="4" Style="{StaticResource MyFont}" SelectedValue="{Binding DisplayObject.AppointmentTime}"/>
                     <Button x:Name="Submit" Grid.Column="1" Grid.Row="6" Content="Submit" Style="{StaticResource MyFont}"/>
                 </Grid>
             </Grid>
@@ -105,18 +105,17 @@
             <Grid Grid.Row="3">
                 <DataGrid Style="{StaticResource MyFont}">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="First name" Width="*"/>
-                        <DataGridTextColumn Header="Last name" Width="*"/>
-                        <DataGridTextColumn Header="Email" Width="*"/>
-                        <DataGridTextColumn Header="Phone" Width="*"/>
-                        <DataGridTextColumn Header="Age" Width="*"/>
-                        <DataGridTextColumn Header="Citizenship" Width="*"/>
-                        <DataGridTextColumn Header="Current status" Width="*"/>
-                        <DataGridTextColumn Header="Sex" Width="*"/>
-                        <DataGridTextColumn Header="Martial status" Width="*"/>
-                        <DataGridTextColumn Header="Service" Width="*"/>
-                        <DataGridTextColumn Header=" Date" Width="*"/>
-                        <DataGridTextColumn Header="Time" Width="*"/>
+                        <DataGridTextColumn Header="First name" Width="*" Binding="{Binding Appointments.Client.FirstName}"/>
+                        <DataGridTextColumn Header="Last name" Width="*" Binding="{Binding Appointments.Client.LastName}"/>
+                        <DataGridTextColumn Header="Email" Width="*" Binding="{Binding Appointments.Client.Email}"/>
+                        <DataGridTextColumn Header="Phone" Width="*" Binding="{Binding Appointments.CLient.Phone}"/>
+                        <DataGridTextColumn Header="Age" Width="*" Binding="{Binding Appointments.Client.Age}"/>
+                        <DataGridTextColumn Header="Citizenship" Width="*" Binding="{Binding Appointments.Client.Citizenship}"/>
+                        <DataGridTextColumn Header="Sex" Width="*" Binding="{Binding Appointments.CLient.Sex}"/>
+                        <DataGridTextColumn Header="Martial status" Width="*" Binding="{Binding Appointments.Client.MaritalStatus}"/>
+                        <DataGridTextColumn Header="Service" Width="*"  Binding="{Binding Appointments.Service}"/>
+                        <DataGridTextColumn Header=" Date" Width="*" Binding="{Binding Appointments.Date}"/>
+                        <DataGridTextColumn Header="Time" Width="*"  Binding="{Binding Appointments.Tine}"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </Grid>

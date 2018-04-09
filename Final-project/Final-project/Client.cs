@@ -19,7 +19,7 @@ namespace Final_project
         Female,
         Other
     }
-    abstract class Client : IClient
+    public abstract class Client : IClient
     {
         private string firstName;
         private string lastName;
