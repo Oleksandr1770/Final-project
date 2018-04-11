@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AppointmentList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Appointments>
+    <Appointment>
+      <Time>09:00 Am</Time>
+      <Date>2018-04-09T00:00:00</Date>
+      <Service>VISA</Service>
+      <Client xsi:type="Resident">
+        <FirstName>fwesfewf</FirstName>
+        <LastName>wefewfewf</LastName>
+        <Email>sfdsdfsdf</Email>
+        <PhoneNumber>sdfsdfsdf</PhoneNumber>
+        <Age>19</Age>
+        <Citizenship>fwefsf</Citizenship>
+      </Client>
+    </Appointment>
+  </Appointments>
+</AppointmentList>

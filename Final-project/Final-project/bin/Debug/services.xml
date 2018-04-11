@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Services>
+	<Resident>
+		<Service>Visitor VISA</Service>
+		<Service>Tourist VISA</Service>
+		<Service>Student VISA</Service>
+		<Service>Study Permit</Service>
+		<Service>Co-op Work Permit</Service>
+		<Service>Post Graduate Work Permit</Service>
+		<Service>Visitor VISA extension</Service>
+		<Service>Study Permit extension</Service>
+	</Resident>
+	<NonResident>
+		<Service>Visitor VISA</Service>
+		<Service>Tourist VISA</Service>
+		<Service>Student VISA</Service>
+		<Service>Study Permit</Service>
+		<Service>Co-op Work Permit</Service>
+		<Service>Post Graduate Work Permit</Service>
+	</NonResident>
+</Services>
