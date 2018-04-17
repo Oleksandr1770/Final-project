@@ -23,6 +23,7 @@ namespace Final_project
             }
         }
         public void Remove(Appointment a) => appointments.Remove(a);
+        public void RemoveAt(int index) => appointments.RemoveAt(index);
         public int Count => appointments.Count;
 
         public ObservableCollection<Appointment> Appointments { get => appointments; set => appointments = value; }

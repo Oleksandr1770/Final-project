@@ -2,16 +2,33 @@
 <AppointmentList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Appointments>
     <Appointment>
-      <Time>09:00 Am</Time>
-      <Date>2018-04-09T00:00:00</Date>
-      <Service>VISA</Service>
+      <Time>11:00 AM</Time>
+      <Date>04-20-2018</Date>
+      <Service>Visitor VISA</Service>
       <Client xsi:type="Resident">
-        <FirstName>fwesfewf</FirstName>
-        <LastName>wefewfewf</LastName>
-        <Email>sfdsdfsdf</Email>
-        <PhoneNumber>sdfsdfsdf</PhoneNumber>
-        <Age>19</Age>
-        <Citizenship>fwefsf</Citizenship>
+        <FirstName>John</FirstName>
+        <LastName>Muller</LastName>
+        <Email>muller@gmail.com</Email>
+        <PhoneNumber>+15491234532</PhoneNumber>
+        <Age>45</Age>
+        <Citizenship>Canada</Citizenship>
+        <MaritalStatus>Married</MaritalStatus>
+        <Sex>Male</Sex>
+      </Client>
+    </Appointment>
+    <Appointment>
+      <Time>09:00 AM</Time>
+      <Date>04-16-2018</Date>
+      <Service>Visitor VISA</Service>
+      <Client xsi:type="Resident">
+        <FirstName>ew</FirstName>
+        <LastName>d</LastName>
+        <Email>d</Email>
+        <PhoneNumber>wef</PhoneNumber>
+        <Age>13</Age>
+        <Citizenship>f</Citizenship>
+        <MaritalStatus>Single</MaritalStatus>
+        <Sex>Male</Sex>
       </Client>
     </Appointment>
   </Appointments>

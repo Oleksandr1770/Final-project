@@ -8,19 +8,10 @@ namespace Final_project
 {
     public class Resident : Client
     {
-        public override string[] Services()
+        public override List<string> Services()
         {
-            return new string[]
-            {
-                "Visitor VISA",
-                "Visitor status extension",
-                "Tourist VISA",
-                "Student VISA",
-                "Study Permit",
-                "Study Permit extension",
-                "Co-op Work Permit",
-                "Post Graduate Work Permit"
-            };
-        }
+            FileManager fileManager = FileManager.Instance();
+            return fileManager.ReadServices()["Resident"];
+    }
     }
 }

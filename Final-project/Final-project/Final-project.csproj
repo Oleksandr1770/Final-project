@@ -54,7 +54,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AgeConverter.cs" />
+    <Compile Include="AgeRule.cs" />
     <Compile Include="DisplayObject.cs" />
+    <Compile Include="EmptyField.cs" />
     <Compile Include="FileManager.cs" />
     <Compile Include="Resident.cs" />
     <Compile Include="XmlFileNotFoundException.cs" />

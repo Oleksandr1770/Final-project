@@ -9,13 +9,13 @@ namespace Final_project
     public class Appointment : IComparable
     {
         private string time;
-        private DateTime date;
+        private string date;
         private Client client;
         private string service;
 
         public Appointment() { }
 
-        public Appointment(string time, DateTime dateTime, Client client, string service)
+        public Appointment(string time, string dateTime, Client client, string service)
         {
             this.Time = time;
             this.Date = dateTime;
@@ -24,7 +24,7 @@ namespace Final_project
         }
 
         public string Time { get => time; set => time = value; }
-        public DateTime Date { get => date; set => date = value; }
+        public string Date { get => date; set => date = value; }
         public string Service { get => service; set => service = value; }
         public Client Client { get => client; set => client = value; }
 

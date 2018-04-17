@@ -8,6 +8,6 @@ namespace Final_project
 {
     interface IClient
     {
-        string[] Services();
+        List<string> Services();
     }
 }

@@ -1,16 +1,19 @@
-﻿<Window x:Class="Final_project.MainWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Final_project"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:System="clr-namespace:System;assembly=mscorlib" x:Class="Final_project.MainWindow"
         mc:Ignorable="d"
         Title="MainWindow" Height="Auto" Width="Auto" WindowStartupLocation="CenterScreen" WindowState="Maximized">
     <Window.Resources>
+        <local:AgeConverter x:Key="ageConverter"/>
         <Style x:Key="MyFont" TargetType="{x:Type Control}">
             <Setter Property="FontFamily" Value="Roboto" />
             <Setter Property="FontSize" Value="13" />
-            <Setter Property="Margin" Value="1,1,1,1"/>
+            <Setter Property="Margin" Value="1,2,1,2"/>
         </Style>
     </Window.Resources>
     <Border Padding="5" BorderBrush="Black" BorderThickness="2" Margin="10,5,10,5">
@@ -47,21 +50,72 @@
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
                     <Label Grid.Column="0" Grid.Row="0" Content="First name" Style="{StaticResource MyFont}"/>
-                    <TextBox Grid.Column="1" Grid.Row="0" Style="{StaticResource MyFont}" Text="{Binding DisplayObject.FirstName}"/>
+                    <TextBox x:Name="firstName" Grid.Column="1" Grid.Row="0" Style="{StaticResource MyFont}" ToolTip="{Binding ElementName=firstName, Path=(Validation.Errors)[0].ErrorContent}">
+                        <TextBox.Text>
+                            <Binding Path="DisplayObject.FirstName" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
+                                <Binding.ValidationRules>
+                                    <local:EmptyField/>
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
                     <Label  Grid.Column="0" Grid.Row="1" Content="Last Name" Style="{StaticResource MyFont}"/>
-                    <TextBox Grid.Column="1" Grid.Row="1" Style="{StaticResource MyFont}" Text="{Binding DisplayObject.LastName}"/>
+                    <TextBox x:Name="lastName" Grid.Column="1" Grid.Row="1" Style="{StaticResource MyFont}" ToolTip="{Binding ElementName=lastName, Path=(Validation.Errors)[0].ErrorContent}">
+                        <TextBox.Text>
+                            <Binding Path="DisplayObject.LastName" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
+                                <Binding.ValidationRules>
+                                    <local:EmptyField/>
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
                     <Label  Grid.Column="0" Grid.Row="2" Content="Email" Style="{StaticResource MyFont}"/>
-                    <TextBox Grid.Column="1" Grid.Row="2" Style="{StaticResource MyFont}" Text="{Binding Email}"/>
+                    <TextBox x:Name="email" Grid.Column="1" Grid.Row="2" Style="{StaticResource MyFont}" ToolTip="{Binding ElementName=email, Path=(Validation.Errors)[0].ErrorContent}">
+                        <TextBox.Text>
+                            <Binding Path="DisplayObject.Email" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
+                                <Binding.ValidationRules>
+                                    <local:EmptyField/>
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
                     <Label  Grid.Column="0" Grid.Row="3" Content="Phone Number" Style="{StaticResource MyFont}"/>
-                    <TextBox Grid.Column="1" Grid.Row="3" Style="{StaticResource MyFont}" Text="{Binding DisplayObject.PhoneNumber}"/>
+                    <TextBox x:Name="phoneNumber" Grid.Column="1" Grid.Row="3" Style="{StaticResource MyFont}" ToolTip="{Binding ElementName=phoneNumber, Path=(Validation.Errors)[0].ErrorContent}">
+                        <TextBox.Text>
+                            <Binding Path="DisplayObject.PhoneNumber" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
+                                <Binding.ValidationRules>
+                                    <local:EmptyField/>
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
                     <Label  Grid.Column="0" Grid.Row="4" Content="Age" Style="{StaticResource MyFont}"/>
-                    <TextBox Grid.Column="1" Grid.Row="4" Style="{StaticResource MyFont}" Text="{Binding DisplayObject.Age}"/>
+                    <TextBox x:Name="age" Grid.Column="1" Grid.Row="4" Style="{StaticResource MyFont}" Foreground="{Binding Path=DisplayObject.Age, Converter={StaticResource ageConverter}}" ToolTip="{Binding ElementName=age, Path=(Validation.Errors)[0].ErrorContent}">
+                        
+                        <TextBox.Text>
+                            
+                            <Binding Path="DisplayObject.Age" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
+                                <Binding.ValidationRules>
+                                    <local:EmptyField/>
+                                    <local:AgeRule Min="0" Max="120"/>
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
                     <Label  Grid.Column="0" Grid.Row="5" Content="Citizenship" Style="{StaticResource MyFont}"/>
-                    <TextBox Grid.Column="1" Grid.Row="5" Style="{StaticResource MyFont}" Text="{Binding DisplayObject.Citizenship}"/>
+                    <TextBox x:Name="citizenship" Grid.Column="1" Grid.Row="5" Style="{StaticResource MyFont}" ToolTip="{Binding ElementName=citizenship, Path=(Validation.Errors)[0].ErrorContent}">
+                        <TextBox.Text>
+                            <Binding Path="DisplayObject.Citizenship" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
+                                <Binding.ValidationRules>
+                                    <local:EmptyField/>
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
                     <Label  Grid.Column="0" Grid.Row="6" Content="Current status" Style="{StaticResource MyFont}"/>
-                    <ComboBox Grid.Column="1" Grid.Row="6" Style="{StaticResource MyFont}" SelectedValue="{Binding DisplayObject.CurrentStatus}"/>
+                    <ComboBox x:Name="statusComboBox" Grid.Column="1" Grid.Row="6" Style="{StaticResource MyFont}" SelectedItem="{Binding DisplayObject.CurrentStatus, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectionChanged="StatusChanged"/>
                 </Grid>
-            
+
                 <Grid Grid.Column="1" Margin="0, 0, 0, 0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
@@ -78,16 +132,16 @@
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
                     <Label Grid.Column="0" Grid.Row="0" Content="Sex" Style="{StaticResource MyFont}"/>
-                    <ComboBox Grid.Column="1" Grid.Row="0" Style="{StaticResource MyFont}" SelectedValue="{Binding DisplayObject.Sex}"/>
+                    <ComboBox x:Name="sexComboBox" Grid.Column="1" Grid.Row="0" Style="{StaticResource MyFont}" SelectedValue="{Binding DisplayObject.Sex}" SelectedIndex="0"/>
                     <Label Grid.Column="0" Grid.Row="1" Content="Marital Status" Style="{StaticResource MyFont}"/>
-                    <ComboBox Grid.Column="1" Grid.Row="1" Style="{StaticResource MyFont}" SelectedValue="{Binding DisplayObject.MaritalStatus}"/>
+                    <ComboBox x:Name="maritalStatusComboBox" Grid.Column="1" Grid.Row="1" Style="{StaticResource MyFont}" SelectedValue="{Binding DisplayObject.MaritalStatus}" SelectedIndex="0"/>
                     <Label Grid.Column="0" Grid.Row="2" Content="Type of service" Style="{StaticResource MyFont}"/>
-                    <ComboBox Grid.Column="1" Grid.Row="2" Style="{StaticResource MyFont}" SelectedValue="{Binding DisplayObject.TypeOfService}"/>
+                    <ComboBox x:Name="serviceComboBox" Grid.Column="1" Grid.Row="2" Style="{StaticResource MyFont}" SelectedValue="{Binding DisplayObject.TypeOfService, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedIndex="0"/>
                     <Label Grid.Column="0" Grid.Row="3" Content="Appointment Date:" Style="{StaticResource MyFont}"/>
-                    <DatePicker x:Name="date" Grid.Column="1" Grid.Row="3" Style="{StaticResource MyFont}" SelectedDate="{Binding DisplayObject.AppointmentDate}"/>
+                    <DatePicker x:Name="datePicker" Grid.Column="1" Grid.Row="3" Style="{StaticResource MyFont}" SelectedDate="{Binding DisplayObject.AppointmentDate, StringFormat='MM/dd/yyyy'}" SelectedDateChanged="DateChanged" FirstDayOfWeek="Monday" IsTodayHighlighted="True" DisplayDateStart="{x:Static sys:DateTime.Now}"/>
                     <Label Grid.Column="0" Grid.Row="4" Content="Appointment Time" Style="{StaticResource MyFont}"/>
-                    <ComboBox Grid.Column="1" Grid.Row="4" Style="{StaticResource MyFont}" SelectedValue="{Binding DisplayObject.AppointmentTime}"/>
-                    <Button x:Name="Submit" Grid.Column="1" Grid.Row="6" Content="Submit" Style="{StaticResource MyFont}"/>
+                    <ComboBox x:Name="appointmentTimeComboBox" Grid.Column="1" Grid.Row="4" Style="{StaticResource MyFont}" SelectedValue="{Binding DisplayObject.AppointmentTime}" SelectedIndex="0"/>
+                    <Button x:Name="Submit" Grid.Column="1" Grid.Row="6" Content="Submit" Style="{StaticResource MyFont}" Click="SubmitBtn"/>
                 </Grid>
             </Grid>
             <Grid Grid.Row="2" VerticalAlignment="Center" Margin="0">
@@ -99,23 +153,33 @@
                     <ColumnDefinition Width="5*"/>
                 </Grid.ColumnDefinitions>
                 <Label Grid.Column="0" Content="Filter" Style="{StaticResource MyFont}"/>
-                <DatePicker Grid.Column="1" Style="{StaticResource MyFont}"/>
-                <Button Grid.Column="2" Content="Reset" Style="{StaticResource MyFont}"/>
+                <DatePicker Grid.Column="1" Style="{StaticResource MyFont}" Text="{Binding FilterDate, Mode=OneWayToSource}" SelectedDateChanged="filterChanged"/>
+                <Button Grid.Column="2" Content="Reset" Style="{StaticResource MyFont}" Click="Reset"/>
             </Grid>
             <Grid Grid.Row="3">
-                <DataGrid Style="{StaticResource MyFont}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="136*"/>
+                    <ColumnDefinition Width="581*"/>
+                </Grid.ColumnDefinitions>
+                <DataGrid x:Name="dataGrid" Style="{StaticResource MyFont}" ItemsSource="{Binding Path=AppointmentList.Appointments}" AutoGenerateColumns="False" Grid.ColumnSpan="2" CanUserAddRows="False">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="First name" Width="*" Binding="{Binding Appointments.Client.FirstName}"/>
-                        <DataGridTextColumn Header="Last name" Width="*" Binding="{Binding Appointments.Client.LastName}"/>
-                        <DataGridTextColumn Header="Email" Width="*" Binding="{Binding Appointments.Client.Email}"/>
-                        <DataGridTextColumn Header="Phone" Width="*" Binding="{Binding Appointments.CLient.Phone}"/>
-                        <DataGridTextColumn Header="Age" Width="*" Binding="{Binding Appointments.Client.Age}"/>
-                        <DataGridTextColumn Header="Citizenship" Width="*" Binding="{Binding Appointments.Client.Citizenship}"/>
-                        <DataGridTextColumn Header="Sex" Width="*" Binding="{Binding Appointments.CLient.Sex}"/>
-                        <DataGridTextColumn Header="Martial status" Width="*" Binding="{Binding Appointments.Client.MaritalStatus}"/>
-                        <DataGridTextColumn Header="Service" Width="*"  Binding="{Binding Appointments.Service}"/>
-                        <DataGridTextColumn Header=" Date" Width="*" Binding="{Binding Appointments.Date}"/>
-                        <DataGridTextColumn Header="Time" Width="*"  Binding="{Binding Appointments.Tine}"/>
+                        <DataGridTextColumn Header="First name" Width="*" Binding="{Binding Client.FirstName}"/>
+                        <DataGridTextColumn Header="Last name" Width="*" Binding="{Binding Client.LastName}"/>
+                        <DataGridTextColumn Header="Email" Width="*" Binding="{Binding Client.Email}"/>
+                        <DataGridTextColumn Header="Phone" Width="*" Binding="{Binding Client.PhoneNumber}"/>
+                        <DataGridTextColumn Header="Age" Width="*" Binding="{Binding Client.Age}">
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="{x:Type TextBlock}">
+                                    <Setter Property="Foreground" Value="{Binding Client.Age, Converter={StaticResource ageConverter}}"></Setter>
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Header="Citizenship" Width="*" Binding="{Binding Client.Citizenship}"/>
+                        <DataGridTextColumn Header="Sex" Width="*" Binding="{Binding Client.Sex}"/>
+                        <DataGridTextColumn Header="Martial status" Width="*" Binding="{Binding Client.MaritalStatus}"/>
+                        <DataGridTextColumn Header="Service" Width="*"  Binding="{Binding Service}"/>
+                        <DataGridTextColumn Header=" Date" Width="*" Binding="{Binding Date}"/>
+                        <DataGridTextColumn Header="Time" Width="*"  Binding="{Binding Time}"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </Grid>
@@ -126,8 +190,8 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Button Content="Save" Grid.Column="2" Style="{StaticResource MyFont}" Margin="5,5,5,5"/>
-                <Button Content="Delete" Grid.Column="3" Style="{StaticResource MyFont}" Margin="5,5,5,5"/>
+                <Button Content="Save" Grid.Column="2" Style="{StaticResource MyFont}" Margin="5,5,5,5" Click="Save"/>
+                <Button Content="Delete" Grid.Column="3" Style="{StaticResource MyFont}" Margin="5,5,5,5" Click="Delete"/>
             </Grid>
         </Grid>
     </Border>

@@ -8,18 +8,10 @@ namespace Final_project
 {
     public class NonResident : Client
     {
-        public override string[] Services()
+        public override List<string> Services()
         {
-            
-            return new string[]
-            {
-                "Visitor VISA",
-                "Tourist VISA",
-                "Student VISA",
-                "Study Permit",
-                "Co-op Work Permit",
-                "Post Graduate Work Permit"
-            };
+            FileManager fileManager = FileManager.Instance();
+            return fileManager.ReadServices()["NonResident"];
         }
     }
 }

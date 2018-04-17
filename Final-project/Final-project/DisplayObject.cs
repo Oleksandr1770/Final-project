@@ -15,10 +15,10 @@ namespace Final_project
         private string age;
         private string citizenship;
         private string currentStatus;
-        private string sex;
-        private string maritalStatus;
+        private Sex sex;
+        private MaritalStatus maritalStatus;
         private string typeOfService;
-        private string appointmentDate;
+        private DateTime appointmentDate;
         private string appointmentTime;
 
         public string FirstName { get => firstName; set => firstName = value; }
@@ -28,10 +28,25 @@ namespace Final_project
         public string Age { get => age; set => age = value; }
         public string Citizenship { get => citizenship; set => citizenship = value; }
         public string CurrentStatus { get => currentStatus; set => currentStatus = value; }
-        public string Sex { get => sex; set => sex = value; }
-        public string MaritalStatus { get => maritalStatus; set => maritalStatus = value; }
+        public Sex Sex { get => sex; set => sex = value; }
+        public MaritalStatus MaritalStatus { get => maritalStatus; set => maritalStatus = value; }
         public string TypeOfService { get => typeOfService; set => typeOfService = value; }
-        public string AppointmentDate { get => appointmentDate; set => appointmentDate = value; }
+        public DateTime AppointmentDate { get => appointmentDate; set => appointmentDate = value; }
         public string AppointmentTime { get => appointmentTime; set => appointmentTime = value; }
+        public void Clear()
+        {
+            this.FirstName = null;
+            this.LastName = null;
+            this.Email = null;
+            this.PhoneNumber = null;
+            this.Age = null;
+            this.Citizenship = null;
+            this.CurrentStatus = null;
+            this.Sex = Sex.Male;
+            this.MaritalStatus = MaritalStatus.Single;
+            this.typeOfService = null;
+            this.AppointmentDate = DateTime.Now;
+            this.AppointmentTime = null;
+        }
     }
 }

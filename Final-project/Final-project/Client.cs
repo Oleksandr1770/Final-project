@@ -3,22 +3,35 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace Final_project
 {
-    enum MaritalStatus
+    [Serializable]
+    public enum Sex
     {
-        Married,
-        Divorced,
-        Single,
-        Widowed
-    }
-    enum Sex
-    {
+        [XmlEnum("Male")]
         Male,
+        [XmlEnum("Female")]
         Female,
+        [XmlEnum("Other")]
         Other
     }
+
+    [Serializable]
+    public enum MaritalStatus
+    {
+        [XmlEnum("Married")]
+        Married,
+        [XmlEnum("Divorced")]
+        Divorced,
+        [XmlEnum("Single")]
+        Single,
+        [XmlEnum("Widowed")]
+        Widowed
+    }
+
+    
     public abstract class Client : IClient
     {
         private string firstName;
@@ -36,9 +49,9 @@ namespace Final_project
         public string PhoneNumber { get => phoneNumber; set => phoneNumber = value; }
         public int Age { get => age; set => age = value; }
         public string Citizenship { get => citizenship; set => citizenship = value; }
-        internal MaritalStatus MaritalStatus { get => maritalStatus; set => maritalStatus = value; }
-        internal Sex Sex { get => sex; set => sex = value; }
+        public MaritalStatus MaritalStatus { get => maritalStatus; set => maritalStatus = value; }
+        public Sex Sex { get => sex; set => sex = value; }
 
-        public abstract string[] Services();
+        public abstract List<string> Services();
     }
 }

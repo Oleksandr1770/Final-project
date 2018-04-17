@@ -25,7 +25,9 @@ namespace Final_project
             clientTypes = new List<Type>
             {
                 typeof(Resident),
-                typeof(NonResident)
+                typeof(NonResident),
+                typeof(Sex),
+                typeof(MaritalStatus)
             };
             ManageFile();
         }
@@ -40,8 +42,17 @@ namespace Final_project
             AppointmentList appointmentList = null;
             XmlSerializer serializer = new XmlSerializer(typeof(AppointmentList), clientTypes.ToArray());
             StreamReader reader = new StreamReader(appointmentsFile);
-            appointmentList = (AppointmentList)serializer.Deserialize(reader);
-            reader.Close();
+            // Catching empty file exception
+            try
+            {
+                appointmentList = (AppointmentList)serializer.Deserialize(reader);
+            } catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            } finally
+            {
+               reader.Close();
+            }
             return appointmentList;
         }
 
